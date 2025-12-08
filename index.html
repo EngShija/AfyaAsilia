@@ -1,176 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ENG SHIJA - Portfolio</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        scroll-behavior: smooth;
-      }
-      .hero {
-        background: linear-gradient(to right, #007bff, #3dbbde);
-        color: white;
-        padding: 100px 0 50px 0;
-      }
-      .section-title {
-        margin-bottom: 30px;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Afya Asilia - Natural Wellness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Product cards: fixed height box, fill the box while keeping aspect and center the crop */
+    .product-img {
+      width: 100%;
+      height: 200px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      background-color: #f8fafc; /* light neutral bg in case of transparent images */
+    }
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <img src="images/profile.jpg" class="rounded-circle" height="60" width="60" alt="">
-        <a class="navbar-brand" style="margin-left: 6px;" href="#">ENG SHIJA</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#services">What I Do</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+    /* Inline circular logo in the header */
+    .header-logo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 9999px;
+    }
+
+    /* Two-line clamp for product descriptions in cards */
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+  .glass { background: rgba(255,255,255,0.85); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+    #waFloat { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Nav -->
+  <header class="bg-green-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+  <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-green-700 font-bold header-logo"><img src="images/logo.webp" alt="Afya Asilia logo"></div>
+        <div>
+          <h1 class="text-lg font-semibold">Afya Asilia</h1>
+          <p class="text-xs opacity-90">Natural wellness • Authentic Eternal International products</p>
         </div>
       </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero text-center">
-      <div class="container">
-        <h1 class="display-4">Hi, I'm NKINDA SHIJA SITTA</h1>
-        <!-- <p class="lead">
-          I specialize in
-          <strong
-            >Web/Mobile Design & Development, Graphics Designing, Computer
-            security issues And Tech Consulting!</strong
-          >
-        </p> -->
+      <nav class="hidden md:flex gap-6 items-center text-sm">
+        <a href="#about-us" class="hover:underline">About</a>
+        <a href="#what-we-do" class="hover:underline">What we do</a>
+        <a href="#products" class="hover:underline">Products</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+  <select id="langSwitcher" class="px-2 py-1 rounded-md border bg-white text-green-700" title="Choose language">
+          <option value="en">English</option>
+          <option value="sw">Swahili</option>
+        </select>
+        <a href="https://wa.me/255692538955" class="ml-3 inline-flex items-center gap-2 bg-white text-green-700 px-3 py-2 rounded-md text-sm font-medium">Order on WhatsApp</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- About Section -->
-    <section id="about" class="container py-5">
-      <h2 class="section-title">About Me</h2>
-      <p>
-        I am a Computer Scientist with experience in Web/mobile apps design and development Computer security and Graphics Design.
-        Passionate about building responsive and user-friendly websites.
-      </p>
-    </section>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-8 items-center">
+    <div class="space-y-4">
+      <h2 id="heroTitle" class="text-3xl font-extrabold text-green-800">Welcome to Afya Asilia</h2>
+      <p id="heroDesc" class="text-gray-700">Authentic herbal supplements from Eternal International. Discover natural solutions for weight management, detoxification, immunity support and everyday wellbeing.</p>
+      <div class="flex gap-3">
+        <a href="#products" class="bg-green-700 text-white px-4 py-2 rounded-md shadow" id="shopBtn">Shop Products</a>
+        <a href="#contact" class="border border-green-700 text-green-700 px-4 py-2 rounded-md" id="contactBtn">Contact Us</a>
+      </div>
+    </div>
+    <div class="rounded-lg overflow-hidden shadow-lg">
+      <img src="images/logo.webp" alt="Afya Asilia" class="w-full h-64 md:h-80 object-cover" />
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section id="services" class="bg-light py-5">
-      <div class="container">
-        <h2 class="section-title">What I Can Do</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <h4>Web Development</h4>
-            <p>
-              Building responsive and scalable websites using modern web
-              technologies.
-            </p>
+  <!-- About -->
+  <section id="about-us" class="max-w-6xl mx-auto px-4 py-6">
+    <div class="glass p-6 rounded-lg shadow-sm">
+      <h3 id="aboutTitle" class="text-2xl font-semibold text-green-800">About Afya Asilia</h3>
+      <p id="aboutDesc" class="mt-3 text-gray-700">Afya Asilia is a trusted online platform dedicated to promoting natural wellness, healthy living, and high-quality nutritional supplements. We believe that true health begins with nature, and our mission is to help individuals transform their lives through safe, effective, and science-supported wellness products.
+
+As an authorized Eternal International sales partner, we provide reliable access to premium herbal products designed to support weight loss, detoxification, immune health, energy balance, and overall body wellness. Our goal is to empower families and communities with natural solutions that improve daily health and long-term wellbeing.
+
+At Afya Asilia, we are committed to transparency, customer satisfaction, and honest guidance. We ensure that every customer receives genuine products, correct usage instructions, and ongoing support on their wellness journey. Your health is our priority.</p>
+    </div>
+  </section>
+
+  <!-- What we do -->
+  <section id="what-we-do" class="max-w-6xl mx-auto px-4 py-6">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-5 bg-white rounded-lg shadow">
+        <h4 id="what1Title" class="font-semibold text-green-700">Supply Authentic Products</h4>
+        <p id="what1Desc" class="mt-2 text-sm text-gray-600">We source original Eternal International supplements and ensure product authenticity and correct handling.</p>
+      </div>
+      <div class="p-5 bg-white rounded-lg shadow">
+        <h4 id="what2Title" class="font-semibold text-green-700">Personalized Guidance</h4>
+        <p id="what2Desc" class="mt-2 text-sm text-gray-600">We help you pick the right regimen for your goals — weight loss, detox, or immune support.</p>
+      </div>
+      <div class="p-5 bg-white rounded-lg shadow">
+        <h4 id="what3Title" class="font-semibold text-green-700">Fast Delivery & Support</h4>
+        <p id="what3Desc" class="mt-2 text-sm text-gray-600">Local delivery, nationwide shipping options, and after-sale support to track progress and answer questions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products with search & filters -->
+  <section id="products" class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <h3 class="text-2xl font-semibold text-green-800" id="productsTitle">Our Products</h3>
+      <div class="flex gap-3 w-full md:w-auto">
+        <input id="searchInput" type="search" placeholder="Search products, categories, descriptions..." class="flex-1 md:flex-none px-3 py-2 rounded-md border" />
+  <select id="categoryFilter" class="px-3 py-2 rounded-md border" title="Filter by category">
+          <option value="all">All Categories</option>
+          <option value="weight loss">Weight Loss</option>
+          <option value="detox">Detox</option>
+          <option value="immunity">Immunity</option>
+          <option value="energy">Energy</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"></div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h4 class="text-xl font-semibold text-green-800" id="contactTitle">Get in touch / Order</h4>
+        <p id="contactDesc" class="mt-2 text-gray-600">Fill the form or use WhatsApp to place your order. We'll reply within a few hours.</p>
+        <form id="contactForm" class="mt-4 space-y-3">
+          <input required name="name" placeholder="Your name" class="w-full px-3 py-2 rounded-md border" />
+          <input required name="phone" placeholder="Phone (e.g. +255...)" class="w-full px-3 py-2 rounded-md border" />
+          <input name="email" placeholder="Email (optional)" class="w-full px-3 py-2 rounded-md border" />
+          <textarea name="message" placeholder="Message / Order details" class="w-full px-3 py-2 rounded-md border" rows="4"></textarea>
+          <div class="flex gap-3">
+            <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded-md">Send Message</button>
+            <a id="waQuick" href="https://api.whatsapp.com/send?phone=255692538955&text=Hello,%20I%20want%20to%20order%20from%20Afya%20Asilia" class="inline-flex items-center gap-2 border border-green-700 text-green-700 px-4 py-2 rounded-md">Quick WhatsApp</a>
           </div>
-          <div class="col-md-4">
-            <h4>UI/UX Design</h4>
-            <p>
-              Designing clean and intuitive user interfaces for web and mobile
-              platforms.
-            </p>
-          </div>
-          <div class="col-md-4">
-            <h4>Tech Consulting</h4>
-            <p>
-              Helping clients choose the right tools and technologies for their
-              projects.
-            </p>
-          </div>
+        </form>
+        <p id="formStatus" class="mt-3 text-sm text-gray-600"></p>
+      </div>
+
+      <div class="p-6 bg-gradient-to-br from-green-50 to-white rounded-lg shadow">
+        <h4 class="text-xl font-semibold text-green-800">Our Location & Hours</h4>
+        <p class="mt-2 text-gray-600">Based in Tanzania / East Africa. Local delivery available. For shipping outside local area, contact us on WhatsApp.</p>
+        <div class="mt-4">
+          <p class="text-sm text-gray-600">Open: Mon–Sat • 09:00–17:00</p>
+          <p class="text-sm text-gray-600">Phone/WhatsApp: +255 692 538 955</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="container py-5">
-      <h2 class="section-title">Portfolio</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img
-              src="images/sms.png"
-              class="card-img-top"
-              alt="Project 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">School Management System</h5>
-              <p class="card-text">Is a web based system which helps schools to centralize their activities and manage students information.</p>
-              <a href="https://github.com/EngShija/E-SMS-OOP">Vist on github</a>
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-start md:items-center text-sm gap-4 md:gap-0">
+      <div>
+        <h5 class="font-semibold">Contact Us</h5>
+        <p>Phone/WhatsApp: +255 692 538 955</p>
+        <p>Email: info@afyaasilia.com</p>
+      </div>
+      <div>
+        <h5 class="font-semibold">Location</h5>
+        <p>Tanzania, East Africa</p>
+      </div>
+      <div>
+        <p>© Afya Asilia — Authorized Eternal International Partner</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a id="waFloat" href="https://wa.me/255692538955" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-12 h-12" /></a>
+
+  <!-- Product details modal -->
+  <div id="productModal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black bg-opacity-50" onclick="closeProductModal()"></div>
+    <div class="bg-white rounded-lg shadow-lg max-w-lg w-full z-10 overflow-hidden">
+      <div class="p-4 flex justify-between items-start">
+        <h4 id="modalTitle" class="font-semibold text-green-800"></h4>
+        <button onclick="closeProductModal()" aria-label="Close" class="text-gray-500 text-2xl leading-none">&times;</button>
+      </div>
+      <img id="modalImg" src="" alt="" class="w-full h-64 object-cover"/>
+      <div class="p-4">
+        <p id="modalPrice" class="font-medium text-gray-700"></p>
+        <p id="modalDesc" class="mt-2 text-gray-600"></p>
+        <div class="mt-4 flex gap-2">
+          <a id="modalOrder" href="#" class="flex-1 inline-block text-center px-3 py-2 border rounded-md">Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showProductDetails(id) {
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('modalTitle').textContent = p.name;
+      const img = document.getElementById('modalImg');
+      img.src = p.img;
+      img.alt = p.name;
+  document.getElementById('modalPrice').textContent = p.price;
+  document.getElementById('modalDesc').textContent = getProductDesc(p);
+  document.getElementById('modalOrder').href = 'https://api.whatsapp.com/send?phone=255692538955&text=' + encodeURIComponent(getWhatsAppPrefill(p));
+      document.getElementById('productModal').classList.remove('hidden');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.add('hidden');
+    }
+    
+    // Return currently selected language ('en' or 'sw')
+    function getCurrentLang() {
+      const el = document.getElementById('langSwitcher');
+      return (el && el.value) ? el.value : 'en';
+    }
+
+    // Return the product description matching the current language (fallback to the other)
+    function getProductDesc(p) {
+      const lang = getCurrentLang();
+      if (lang === 'sw') return p.desc_sw || p.desc_en || '';
+      return p.desc_en || p.desc_sw || '';
+    }
+
+    // Return a localized WhatsApp prefill message for a product
+    function getWhatsAppPrefill(p) {
+      const lang = getCurrentLang();
+      if (lang === 'sw') return `Ninataka kununua ${p.name}`; // "I want to buy <product>"
+      return `I'm interested in ${p.name}`;
+    }
+    const products = [
+      { id: 1, name: 'Chrysanthemum Tea', category: 'weight loss', price: 'Tsh 65,000', desc_en: 'Tea for reducing belly fat, detox and metabolism support. Lorem ipsum dolor sit amet consectetur adipisicing elit.', desc_sw: 'Chai ya Chrysanthemum kwa kupunguza mafuta ya tumbo, kusafisha mwili na kusaidia kimetabolism.', img: 'images/4dc1fdde1b90454dac1b54c82a42080f.png' },
+      { id: 2, name: 'Detox Formula', category: 'detox', price: 'Tsh 55,000', desc_en: 'Full body detox and liver support.', desc_sw: 'Dawa ya kusafisha mwili wote na kuunga mkono ini.', img: 'images/4dc1fdde1b90454dac1b54c82a42080f.png' },
+      { id: 3, name: 'Immune Booster', category: 'immunity', price: 'Tsh 45,000', desc_en: 'Increases resistance and supports immune function.', desc_sw: 'Inaimarisha kinga ya mwili na kuongeza upinzani.', img: 'images/4dc1fdde1b90454dac1b54c82a42080f.png' },
+      { id: 4, name: 'Energy Capsules', category: 'energy', price: 'Tsh 50,000', desc_en: 'Natural energy support for daily vitality.', desc_sw: 'Msaada wa nishati asilia kwa uhai wa kila siku.', img: 'images/4dc1fdde1b90454dac1b54c82a42080f.png' },
+      { id: 5, name: 'Slim Tea Pack', category: 'weight loss', price: 'Tsh 70,000', desc_en: 'Complementary tea pack for slimming and appetite control.', desc_sw: 'Pakka ya chai kusaidia kupunguza uzito na kudhibiti hamu ya kula.', img: 'images/4dc1fdde1b90454dac1b54c82a42080f.png' },
+      { id: 6, name: 'Liver Support', category: 'detox', price: 'Tsh 60,000', desc_en: 'Herbal support for liver health and cleansing.', desc_sw: 'Msaada wa mimea kwa afya ya ini na kusafisha.', img: 'images/4dc1fdde1b90454dac1b54c82a42080f.png' }
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+
+    function renderProducts(list) {
+      productGrid.innerHTML = '';
+      if (!list.length) {
+        productGrid.innerHTML = '<div class="col-span-3 p-6 bg-white rounded shadow">No products match your search.</div>';
+        return;
+      }
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-lg shadow overflow-hidden';
+  const waHref = 'https://api.whatsapp.com/send?phone=255692538955&text=' + encodeURIComponent(getWhatsAppPrefill(p));
+        card.innerHTML = `
+          <img src="${p.img}" alt="${p.name}" class="w-full product-img" />
+    <div class="p-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold text-green-800">${p.name}</h4>
+              <span class="text-sm font-medium text-gray-600">${p.price}</span>
+            </div>
+          <p class="text-sm text-gray-600 mt-2 line-clamp-2">${getProductDesc(p)}</p>
+            <div class="mt-3 flex gap-2">
+              <a href="${waHref}" class="flex-1 inline-block text-center px-3 py-2 border rounded-md">Order on WhatsApp</a>
+              <button class="px-3 py-2 bg-gray-100 text-green-700 rounded-md" onclick="showProductDetails(${p.id})">Read more</button>
             </div>
           </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img
-              src="images/calculator.png"
-              class="card-img-top"
-              alt="Project 2"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Calculator</h5>
-              <p class="card-text">A calculator app which is able to perform some simple mathematics calculations</p>
-              <a href="https://mycalculatorappl.netlify.app/">Vist</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img
-              src="images/olfs.png"
-              class="card-img-top"
-              alt="Project 3"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Online Logbook</h5>
-              <p class="card-text">A web based system allowing students to fill their logbooks for IPT online and allowing both internal and external supervisors to truck student details and location.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        `;
+        productGrid.appendChild(card);
+      });
+    }
 
-    <!-- Contact Section -->
-    <section id="contact" class="container py-5">
-      <h2 class="section-title">Contact</h2>
-      <p>
-        Feel free to reach out to me at
-        <a href="mailto:mshija0105@gmail.com">mshija0105@gmail.com</a>
-      </p>
-    </section>
+    function normalize(text) { return (text||'').toString().toLowerCase(); }
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
-      &copy; 2025 EngShija. All rights reserved.
-    </footer>
+    function filterProducts() {
+      const q = normalize(searchInput.value);
+      const cat = categoryFilter.value;
+      const filtered = products.filter(p => {
+        const desc = getProductDesc(p);
+        const matchQ = normalize(p.name).includes(q) || normalize(desc).includes(q) || normalize(p.category).includes(q);
+        const matchCat = (cat === 'all') || (p.category === cat);
+        return matchQ && matchCat;
+      });
+      renderProducts(filtered);
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+    renderProducts(products);
+
+    searchInput.addEventListener('input', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+
+    const cart = [];
+    function addToCart(id) {
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+      cart.push(p);
+      alert(p.name + ' added to cart. Cart size: ' + cart.length);
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('formStatus').textContent = 'Sending...';
+      setTimeout(()=>{
+        document.getElementById('formStatus').textContent = 'Message sent. We will contact you on WhatsApp soon.';
+        this.reset();
+      }, 800);
+    });
+
+    // Language switcher
+    const langSwitcher = document.getElementById('langSwitcher');
+    langSwitcher.addEventListener('change', function(){
+      if(this.value === 'sw') {
+        document.getElementById('heroTitle').textContent = 'Karibu Afya Asilia';
+        document.getElementById('heroDesc').textContent = 'Virutubisho asilia kutoka Eternal International. Gundua suluhisho la asili kwa kudhibiti uzito, kusafisha mwili, kuimarisha kinga na ustawi wa kila siku.';
+        document.getElementById('shopBtn').textContent = 'Nunua Bidhaa';
+        document.getElementById('contactBtn').textContent = 'Wasiliana Nasi';
+  document.getElementById('aboutTitle').textContent = 'Kuhusu Afya Asilia';
+  document.getElementById('aboutDesc').textContent = `Afya Asilia ni jukwaa mtandaoni la kuaminika lililojitolea kukuza ustawi wa asili, maisha yenye afya, na virutubisho vya ubora wa juu. Tunaamini afya ya kweli inaanza na asili, na dhamira yetu ni kuwasaidia watu kubadilisha maisha yao kupitia bidhaa za ustawi ambazo ni salama, zenye ufanisi na zinaungwa mkono na tafiti.
+
+Kama mshirika rasmi wa mauzo wa Eternal International, tunatoa upatikanaji wa kuaminika wa bidhaa za mimea za kiwango cha juu zilizoundwa kusaidia kupunguza uzito, kusafisha mwili, kuimarisha mfumo wa kinga, kusawazisha nishati, na kuboresha afya kwa ujumla. Lengo letu ni kuwawezesha familia na jumuiya kwa suluhisho za asili zinazoongeza afya ya kila siku na ustawi wa muda mrefu.
+
+Katika Afya Asilia, tumejitolea kwa uwazi, kuridhika kwa wateja, na mwongozo wa kweli. Tunahakikisha kila mteja anapata bidhaa halisi, maelekezo sahihi ya matumizi, na msaada endelevu katika safari yao ya ustawi. Afya yako ndiyo kipaumbele chetu.`;
+        document.getElementById('productsTitle').textContent = 'Bidhaa Zetu';
+        document.getElementById('contactTitle').textContent = 'Wasiliana / Agiza';
+        document.getElementById('contactDesc').textContent = 'Jaza fomu au tumia WhatsApp kuweka oda. Tutajibu ndani ya masaa machache.';
+        // What we do - Swahili
+        document.getElementById('what1Title').textContent = 'Sambaza Bidhaa Halali';
+        document.getElementById('what1Desc').textContent = 'Tunachukua bidhaa halisi za Eternal International na kuhakikisha ubora na uhifadhi sahihi.';
+        document.getElementById('what2Title').textContent = 'Mwongozo Binafsi';
+        document.getElementById('what2Desc').textContent = 'Tunakusaidia kuchagua ratiba inayofaa kwa malengo yako — kupunguza uzito, kusafisha mwili au kuongeza kinga.';
+        document.getElementById('what3Title').textContent = 'Uwasilishaji Haraka & Msaada';
+        document.getElementById('what3Desc').textContent = 'Uwasilishaji wa ndani, chaguzi za usafirishaji kitaifa, na msaada baada ya mauzo.';
+      } else {
+        document.getElementById('heroTitle').textContent = 'Welcome to Afya Asilia';
+        document.getElementById('heroDesc').textContent = 'Authentic herbal supplements from Eternal International. Discover natural solutions for weight management, detoxification, immunity support and everyday wellbeing.';
+        document.getElementById('shopBtn').textContent = 'Shop Products';
+        document.getElementById('contactBtn').textContent = 'Contact Us';
+  document.getElementById('aboutTitle').textContent = 'About Afya Asilia';
+  document.getElementById('aboutDesc').textContent = 'Afya Asilia is a trusted online platform dedicated to promoting natural wellness, healthy living, and high-quality nutritional supplements. We believe that true health begins with nature, and our mission is to help individuals transform their lives through safe, effective, and science-supported wellness products.\n\nAs an authorized Eternal International sales partner, we provide reliable access to premium herbal products designed to support weight loss, detoxification, immune health, energy balance, and overall body wellness. Our goal is to empower families and communities with natural solutions that improve daily health and long-term wellbeing.\n\nAt Afya Asilia, we are committed to transparency, customer satisfaction, and honest guidance. We ensure that every customer receives genuine products, correct usage instructions, and ongoing support on their wellness journey. Your health is our priority.';
+        document.getElementById('productsTitle').textContent = 'Our Products';
+        document.getElementById('contactTitle').textContent = 'Get in touch / Order';
+        document.getElementById('contactDesc').textContent = 'Fill the form or use WhatsApp to place your order. We will reply within a few hours.';
+        // What we do - English
+        document.getElementById('what1Title').textContent = 'Supply Authentic Products';
+        document.getElementById('what1Desc').textContent = 'We source original Eternal International supplements and ensure product authenticity and correct handling.';
+        document.getElementById('what2Title').textContent = 'Personalized Guidance';
+        document.getElementById('what2Desc').textContent = 'We help you pick the right regimen for your goals — weight loss, detox, or immune support.';
+        document.getElementById('what3Title').textContent = 'Fast Delivery & Support';
+        document.getElementById('what3Desc').textContent = 'Local delivery, nationwide shipping options, and after-sale support to track progress and answer questions.';
+      }
+      // Re-render products so descriptions update for the selected language
+      filterProducts();
+    });
+  </script>
+</body>
+</html
